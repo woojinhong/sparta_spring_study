@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/memo.iml" filepath="$PROJECT_DIR$/.idea/modules/memo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/memo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/memo.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sparta-study.iml" filepath="$PROJECT_DIR$/.idea/sparta-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mvc.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mvc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mvc.main.iml" />
+    </modules>
+  </component>
+</project>
