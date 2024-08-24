@@ -1,0 +1,3 @@
+-- 매니저 테이블 id 값 AUTO_INCREMENT 추가
+ALTER TABLE manager
+    MODIFY id BIGINT AUTO_INCREMENT COMMENT '매니저 아이디';
