@@ -3,6 +3,7 @@ package com.sparta.memo.controller;
 import com.sparta.memo.dto.MemoRequestDto;
 import com.sparta.memo.dto.MemoResponseDto;
 import com.sparta.memo.entity.Memo;
+import com.sparta.memo.service.MemoService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -27,31 +28,9 @@ public class MemoController {
 
     @PostMapping("/memos")
     public MemoResponseDto createMemo(@RequestBody MemoRequestDto requestDto) {
-        // RequestDto -> Entity
-        Memo memo = new Memo(requestDto);
+        MemoService memoService = new MemoService(jdbcTemplate);
+        return memoService.createMemo(requestDto);
 
-        // DB 저장
-        KeyHolder keyHolder = new GeneratedKeyHolder(); // 기본 키를 반환받기 위한 객체
-
-        String sql = "INSERT INTO memo (username, contents) VALUES (?, ?)";
-        jdbcTemplate.update( con -> {
-                    PreparedStatement preparedStatement = con.prepareStatement(sql,
-                            Statement.RETURN_GENERATED_KEYS);
-
-                    preparedStatement.setString(1, memo.getUsername());
-                    preparedStatement.setString(2, memo.getContents());
-                    return preparedStatement;
-                },
-                keyHolder);
-
-        // DB Insert 후 받아온 기본키 확인
-        Long id = keyHolder.getKey().longValue();
-        memo.setId(id);
-
-        // Entity -> ResponseDto
-        MemoResponseDto memoResponseDto = new MemoResponseDto(memo);
-
-        return memoResponseDto;
     }
 
     @GetMapping("/memos")
