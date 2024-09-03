@@ -35,8 +35,8 @@ public class OneToManyTest {
         Food food = new Food();
         food.setName("후라이드 치킨");
         food.setPrice(15000);
-        food.getUserList().add(user); // 외래 키(연관 관계) 설정
-        food.getUserList().add(user2); // 외래 키(연관 관계) 설정
+//        food.getUserList().add(user); // 외래 키(연관 관계) 설정
+//        food.getUserList().add(user2); // 외래 키(연관 관계) 설정
 
         userRepository.save(user);
         userRepository.save(user2);
@@ -50,9 +50,9 @@ public class OneToManyTest {
     void test2() {
         Food food = foodRepository.findById(1L).orElse(null);
 
-        for (User user : food.getUserList()){
-            System.out.println("user.getName() = " + user.getName());
-        }
+//        for (User user : food.getUserList()){
+//            System.out.println("user.getName() = " + user.getName());
+//        }
     }
 
 }
